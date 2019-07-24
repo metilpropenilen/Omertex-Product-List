@@ -1,5 +1,11 @@
 *{
     font-family: Roboto, sans-serif;
+    margin: 0;
+}
+
+body{
+    min-height: 100%;
+    background: #f8f8f8;
 }
 
 .App {
@@ -10,6 +16,7 @@
 .products-filter-container {
     display: flex;
     justify-content: center;
+    margin: 20px 0;
 }
 
 .products-container {
@@ -34,6 +41,12 @@
 
 .product-container:hover {
     box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.3);
+}
+
+.product-icon {
+    height: 300px;
+    display: flex;
+    align-items: center;
 }
 
 .product-icon img {
@@ -68,7 +81,6 @@
     position: absolute;
     width: max-content;
     width: -moz-max-content;
-    /*top: 25px;*/
     left: 50%;
     transform: translate(-50%, 25px);
     font-size: small;
@@ -88,10 +100,10 @@
 .product-popup-box {
     background: rgba(255, 255, 255, 1);
     position: absolute;
-    top: 5%;
-    right: 5%;
-    bottom: 5%;
-    left: 5%;
+    top: 10%;
+    right: 10%;
+    bottom: 10%;
+    left: 10%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -100,19 +112,13 @@
 
 .product-popup-close {
     position: absolute;
-    top: 6%;
-    right: 6%;
+    top: 12%;
+    right: 12%;
     cursor: pointer;
-}
-
-.product-popup-icon {
-    padding: 0 50px;
-}
-
-.product-popup-icon img {
-    max-width: 500px;
-    height: auto;
-    max-height: 80%;
+    -webkit-transition: transform 0.5s ease;;
+    -moz-transition: transform 0.5s ease;;
+    -o-transition: transform 0.5s ease;;
+    transition: transform 0.5s ease;
 }
 
 .product-popup-close::before {
@@ -123,8 +129,19 @@
     font-size: 28px;
 }
 
-.product-popup-close:hover::before {
+.product-popup-close:hover {
     color: red;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);}
+
+.product-popup-icon {
+    padding: 0 50px;
+}
+
+.product-popup-icon img {
+    max-width: 500px;
+    height: auto;
+    max-height: 80%;
 }
 
 @font-face {

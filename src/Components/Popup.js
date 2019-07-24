@@ -6,12 +6,12 @@ class Popup extends React.Component {
 		this.state = {};
 	}
 
-	// componentDidMount = () => document.addEventListener('keydown', (e)=> e.which === 27 ? this.closePopup() : null);
+	componentDidMount = () => document.addEventListener('keydown', (e)=> e.which === 27 ? this.closePopup() : null);
 	closePopup = () => this.props.close();
 
 	render() {
 		return (
-			<div className='product-popup-container' onClick={this.closePopup}>
+			<div className='product-popup-container'>
 				<div className="product-popup-box">
 					<div className="product-popup-icon">
 						{<img src={require(`../images/${this.props.product.image}`)} alt="product-icon"/>}
@@ -23,7 +23,7 @@ class Popup extends React.Component {
 						<p className="product-popup-instash-status">In stash status: {this.props.product.addInfo}</p>
 					</div>
 				</div>
-				<span className='product-popup-close' onClick={this.closePopup}>Х</span>
+				<span className='product-popup-close' onClick={this.closePopup}/>
 			</div>
 		);
 	}

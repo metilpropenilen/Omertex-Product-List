@@ -1,0 +1,102 @@
+.App {
+    display: flex;
+    flex-direction: column;
+}
+
+.products-filter-container {
+    display: flex;
+    justify-content: center;
+}
+
+.products-container {
+    display: flex;
+    padding: 10px;
+}
+
+.product-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    cursor: pointer;
+    -webkit-transition: box-shadow 0.5s ease;;
+    -moz-transition: box-shadow 0.5s ease;;
+    -o-transition: box-shadow 0.5s ease;;
+    transition: box-shadow 0.5s ease;
+}
+
+.product-container:hover {
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.3);
+}
+
+.product-icon img {
+    max-width: 300px;
+    height: auto;
+    max-height: 300px;
+}
+
+.product-popup-container {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    top: 0;
+    left: 0;
+}
+
+.product-popup-box {
+    background: rgba(255, 255, 255, 1);
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    bottom: 5%;
+    left: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.product-popup-close {
+    position: absolute;
+    top: 6%;
+    right: 6%;
+    cursor: pointer;
+}
+
+.product-popup-icon {
+    padding: 0 50px;
+}
+
+.product-popup-icon img {
+    max-width: 500px;
+    height: auto;
+    max-height: 80%;
+}
+
+.product-popup-close::before {
+    content: '\f00d';
+    font-family: fontawesome, sans-serif;
+    cursor: pointer;
+    vertical-align: middle;
+    font-size: 28px;
+}
+
+.product-popup-close:hover::before {
+    color: red;
+}
+
+@font-face {
+    font-family: "fontawesome";
+    font-style: normal;
+    font-weight: 400;
+    font-display: auto;
+    src: url(./fonts/fa-regular-400.eot);
+    src: url(./fonts/fa-regular-400.eot?#iefix) format("embedded-opentype"),
+    url(./fonts/fa-regular-400.woff2) format("woff2"),
+    url(./fonts/fa-regular-400.woff) format("woff"),
+    url(./fonts/fa-regular-400.ttf) format("truetype")
+}

@@ -19,6 +19,7 @@ class Product extends React.Component {
 				<div className="product-price">
 					<p>{this.props.product.price}$</p>
 				</div>
+				<div hint={this.props.product.inStock ? "In stock" : "Not available"} className={this.props.product.inStock ? "product-stock-available" : "product-stock-unavailable"}/>
 			</div>
 		);
 	}

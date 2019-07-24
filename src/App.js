@@ -10,18 +10,25 @@ class App extends React.Component {
 			products: [
 				{
 					id: 0,
-					name: 'keyboard',
+					name: 'Apple Magic Keyboard',
 					image: 'keyboard.jpg',
-					price: '100',
-					addInfo: 'lenovo',
-					inStash: false
+					price: '200',
+					addInfo: 'Apple',
+					inStock: true
 				}, {
 					id: 1,
-					name: 'mouse',
+					name: 'Mouse',
 					image: 'mouse.png',
-					price: '200',
-					addInfo: 'realtek',
-					inStash: true
+					price: '100',
+					addInfo: 'Logitech',
+					inStock: false
+				}, {
+					id: 2,
+					name: 'Macbook Pro',
+					image: 'macbookpro.png',
+					price: '2000',
+					addInfo: 'Apple',
+					inStock: true
 				}],
 			filter: '',
 			showPopup: false,
@@ -29,7 +36,7 @@ class App extends React.Component {
 		};
 	}
 
-	handleChange = (e) => this.setState({filter: e.target.value});
+	handleChange = (e) => this.setState({filter: e.target.value.toLowerCase()});
 	showPopup = () => this.setState({showPopup: true});
 	hidePopup = () => this.setState({showPopup: false, selectedProduct: null});
 	selectProduct = (id) => {
@@ -45,7 +52,7 @@ class App extends React.Component {
 					<input type='text' onChange={this.handleChange} value={this.state.filter}/>
 				</div>
 				<div className="products-container">
-					{this.state.products.map(product => product.name.includes(this.state.filter) ?
+					{this.state.products.map(product => product.name.toLowerCase().includes(this.state.filter) ?
 						<Product key={product.id} product={product} show={this.selectProduct}/> : null)}
 				</div>
 				{this.state.showPopup && <Popup product={this.state.selectedProduct} close={this.hidePopup}/>}

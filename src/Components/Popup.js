@@ -20,7 +20,7 @@ class Popup extends React.Component {
 						<p className="product-popup-name">Product name: {this.props.product.name}</p>
 						<p className="product-popup-price">Price: {this.props.product.price}$</p>
 						<p className="product-popup-addinfo">Additional info: {this.props.product.addInfo}</p>
-						<p className="product-popup-instash-status">In stash status: {this.props.product.addInfo}</p>
+						<p className="product-popup-instock-status">In stash status: {this.props.product.inStock ? "In stock" : "Not available"}</p>
 					</div>
 				</div>
 				<span className='product-popup-close' onClick={this.closePopup}/>

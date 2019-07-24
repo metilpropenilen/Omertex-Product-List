@@ -5,10 +5,11 @@ class Product extends React.Component {
 		super(props);
 		this.state = {};
 	}
+	showPopup = ()=> this.props.show(this.props.product.id);
 
 	render() {
 		return (
-			<div className='product-container'>
+			<div className='product-container' onClick={this.showPopup}>
 				<div className="product-icon">
 					{<img src={require(`../images/${this.props.product.image}`)} alt="product-icon"/>}
 				</div>

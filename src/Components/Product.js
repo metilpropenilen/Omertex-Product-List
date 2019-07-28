@@ -1,11 +1,14 @@
 import React from 'react';
+import {connect} from "react-redux";
+import {selectProduct, eraseProduct} from "../Actions";
 
 class Product extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {};
 	}
-	showPopup = ()=> this.props.show(this.props.product.id);
+
+	showPopup = () => this.props.selectProduct([...this.props.products].find(elem => elem.id === this.props.product.id));
 
 	render() {
 		return (
@@ -19,10 +22,17 @@ class Product extends React.Component {
 				<div className="product-price">
 					<p>{this.props.product.price}$</p>
 				</div>
-				<div hint={this.props.product.inStock ? "In stock" : "Not available"} className={this.props.product.inStock ? "product-stock-available" : "product-stock-unavailable"}/>
+				<div hint={this.props.product.inStock ? "In stock" : "Not available"}
+					 className={this.props.product.inStock ? "product-stock-available" : "product-stock-unavailable"}/>
 			</div>
 		);
 	}
 }
 
-export default Product;
+const mapStateToProps = (state) => {
+	return {
+		products: state.products
+	}
+};
+
+export default connect(mapStateToProps, {selectProduct, erasePopup: eraseProduct})(Product);

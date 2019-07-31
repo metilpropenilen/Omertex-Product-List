@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {selectProduct, eraseProduct} from "../Actions";
+import {selectProduct, eraseProduct} from "../../Actions";
+import style from './Product.module.scss'
 
 class Product extends React.Component {
 	constructor(props) {
@@ -12,18 +13,18 @@ class Product extends React.Component {
 
 	render() {
 		return (
-			<div className='product-container' onClick={this.showPopup}>
-				<div className="product-icon">
-					{<img src={require(`../images/${this.props.product.image}`)} alt="product-icon"/>}
+			<div className={style["product-container"]} onClick={this.showPopup}>
+				<div className={style["product-icon"]}>
+					{<img src={require(`../../images/${this.props.product.image}`)} alt="product-icon"/>}
 				</div>
-				<div className="product-name">
+				<div className={style["product-name"]}>
 					<p>{this.props.product.name}</p>
 				</div>
-				<div className="product-price">
+				<div className={style["product-price"]}>
 					<p>{this.props.product.price}$</p>
 				</div>
 				<div hint={this.props.product.inStock ? "In stock" : "Not available"}
-					 className={this.props.product.inStock ? "product-stock-available" : "product-stock-unavailable"}/>
+					 className={style[this.props.product.inStock ? "product-stock-available" : "product-stock-unavailable"]}/>
 			</div>
 		);
 	}

@@ -1,8 +1,11 @@
-const path = require('path');
+const path = require( 'path' );
+// const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
+const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
+
 module.exports = {
-	entry: path.join(__dirname + '/src/index.js'),
+	entry: path.join( __dirname + '/src/index.js' ),
 	output: {
-		path: path.join(__dirname + "/public/"),
+		path: path.join( __dirname + "/public/" ),
 		filename: 'bundle.js'
 	},
 	module: {
@@ -18,28 +21,29 @@ module.exports = {
 				}
 			},
 			{
-				test: /\.scss$/,
+				test: /\.(scss|css)$/,
 				use: [
+					// {
+					// 	loader: "style-loader" // creates style nodes from JS strings
+					// },
 					{
-						loader: "style-loader" // creates style nodes from JS strings
+						loader: MiniCssExtractPlugin.loader,
 					},
 					{
-						loader: "css-loader" // translates CSS into CommonJS
+						loader: "css-loader",
+						options: {
+							modules: true,
+							// localIdentName: '[name]__[local]___[hash:base64:5]'
+						},
 					},
 					{
-						loader: "sass-loader" // compiles Sass to CSS
-					}
-				]
-			},
-			{
-				test: /\.css$/,
-				use: [
-					{
-						loader: "style-loader" // creates style nodes from JS strings
+						loader: "sass-loader",
+						options: {
+							minimize: true,
+							sourceMap: true
+						}
 					},
-					{
-						loader: "css-loader" // translates CSS into CommonJS
-					}
+					// MiniCssExtractPlugin.loader, "css-loader", "sass-loader"
 				]
 			},
 			{
@@ -65,4 +69,14 @@ module.exports = {
 			},
 		]
 	}
+	,
+	plugins: [
+	// 	new ExtractTextPlugin('main.css', {
+	// 		allChunks: true
+	// 	})
+		new MiniCssExtractPlugin({
+			filename: "[name].css",
+			chunkFilename: "[id].css"
+		})
+	]
 };

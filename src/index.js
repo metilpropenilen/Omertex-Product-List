@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {createStore} from "redux";
 import {Provider} from "react-redux";
-import App from './Components/App';
+import App from './Components/App/App';
 import rootReducer from './Reducers';
+import './style.css'
 
 let Store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 

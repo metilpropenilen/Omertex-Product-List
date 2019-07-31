@@ -40,3 +40,9 @@ export const eraseProduct = () => {
 		type: "ERASE_PRODUCT"
 	}
 };
+
+export const addProduct = () => {
+	return {
+		type: "ADD_PRODUCT"
+	}
+};
